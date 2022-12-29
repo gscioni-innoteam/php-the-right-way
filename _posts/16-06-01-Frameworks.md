@@ -1,26 +1,36 @@
 ---
 isChild: true
+title:   Framework
 anchor:  frameworks
 ---
 
-## Frameworks {#frameworks_title}
+## Framework {#frameworks_title}
 
-Rather than re-invent the wheel, many PHP developers use frameworks to build out web applications. Frameworks abstract
-away many of the low-level concerns and provide helpful, easy-to-use interfaces to complete common tasks.
+Piuttosto che reinventare la ruota, molti provider PHP usano dei framework per
+costruire le proprie applicazioni. I framework astraggono la maggior parte dei
+dettagli di basso livello e forniscono delle utili interfacce di semplice
+utilizzo per realizzare molte funzionalità comuni.
 
-You do not need to use a framework for every project. Sometimes plain PHP is the right way to go, but if you do need a
-framework then there are three main types available:
+Non hai bisogno di un framework per ogni progetto. A volte il solo PHP è il modo
+giusto per realizzare le cose, ma se hai bisogno di un framework, ce ne sono tre
+tipi:
 
-* Micro Frameworks
-* Full-Stack Frameworks
-* Component Frameworks
+* Micro-framework
+* Framework completi
+* Framework a componenti
 
-Micro-frameworks are essentially a wrapper to route a HTTP request to a callback, controller, method, etc as quickly as
-possible, and sometimes come with a few extra libraries to assist development such as basic database wrappers and the
-like. They are prominently used to build remote HTTP services.
+I micro-framework forniscono essenzialmente un modo per mappare una richiesta
+HTTP a un callback, un controller o un metodo il più velocemente possibile, e a
+volte forniscono alcune libreria extra per aiutare nello sviluppo come librerie
+di base per il database e cose del genere. Sono prevalentemente usati nella
+costruzione di servizi HTTP remoti.
 
-Many frameworks add a considerable number of features on top of what is available in a micro-framework; these are
-called Full-Stack Frameworks. These often come bundled with ORMs, Authentication packages, etc.
+Molti framework aggiungono un nome considerevole di funzionalità a quelle
+disponibili in un micro-framework; questi vengono detti framework completi. Di
+solito sono distribuiti con degli ORM, pacchetti per l'autenticazione etc.
 
-Component-based frameworks are collections of specialized and single-purpose libraries. Disparate component-based
-frameworks can be used together to make a micro- or full-stack framework.
+I framework a componenti sono insiemi di librerie specializzate e con una sola
+responsabilità. Diversi framework a componenti possono essere usati insieme per
+creare un micro-framework o un framework completo.
+
+* [Framework PHP popolari](https://github.com/codeguy/php-the-right-way/wiki/Frameworks)

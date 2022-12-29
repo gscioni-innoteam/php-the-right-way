@@ -1,72 +1,89 @@
 ---
 isChild: true
+title:   Filtraggio dei dati
 anchor:  data_filtering
 ---
 
-## Data Filtering {#data_filtering_title}
+## Filtraggio dei dati {#data_filtering_title}
 
-Never ever (ever) trust foreign input introduced to your PHP code. Always sanitize and validate foreign input before
-using it in code. The `filter_var()` and `filter_input()` functions can sanitize text and validate text formats (e.g.
-email addresses).
+Non fidarti mai (mai!) dell'input esterno introdotto nel tuo codice PHP.
+Sanitizza e valida sempre l'input prima di usarlo nel tuo codice. Le funzioni
+`filter_var` e `filter_input` possono sanitizzare il testo e validare certi
+formati (es. indirizzi email).
 
-Foreign input can be anything: `$_GET` and `$_POST` form input data, some values in the `$_SERVER` superglobal, and the
-HTTP request body via `fopen('php://input', 'r')`. Remember, foreign input is not limited to form data submitted by the
-user. Uploaded and downloaded files, session values, cookie data, and data from third-party web services are foreign
-input, too.
+L'input esterno può essere qualunque cosa: dati di form da `$_GET` e `$_POST`,
+alcuni valori nella variabile superglobale `$_SERVER`, e il corpo della
+richiesta HTTP recuperato tramite `fopen('php://input', 'r')`. Ricorda, l'input
+esterno non è limitato ai form inviati dall'utente. Anche i file caricati e
+scaricati, i valori di sessione, i dati nei cookie e i dati da servizi Web di
+terze parti sono input esterno.
 
-While foreign data can be stored, combined, and accessed later, it is still foreign input. Every time you process,
-output, concatenate, or include data in your code, ask yourself if the data is filtered properly and can it be trusted.
+Anche se l'input esterno può essere salvato, combinato e letto successivamente,
+è ancora input esterno. Ogni volta che processi, visualizzi, concateni o includi
+dati nel tuo codice, chiediti se sono stati filtrati appropriatamente e se ci si
+può fidare di essi.
 
-Data may be _filtered_ differently based on its purpose. For example, when unfiltered foreign input is passed into HTML
-page output, it can execute HTML and JavaScript on your site! This is known as Cross-Site Scripting (XSS) and can be a
-very dangerous attack. One way to avoid XSS is to sanitize all user-generated data before outputting it to your page by
-removing HTML tags with the `strip_tags()` function or escaping characters with special meaning into their respective
-HTML entities with the `htmlentities()` or `htmlspecialchars()` functions.
+I dati possono essere _filtrati_ diversamente a seconda del loro scopo. Per
+esempio, quando input esterno non filtrato è passato nell'output HTML della
+pagina, può esguire codice HTML e JavaScript sul tuo sito! Questo è conosciuto
+come Cross-Site Scripting (XSS) e può essere un attacco molto pericoloso. Un
+modo per evitare l'XSS è sanitizzare tutti i dati generati dall'utente prima di
+visualizzarlo nella tua pagina, rimuovendo i tag HTML con la funzione
+`strip_tags` o eseguendo l'escape di caratteri dal significato speciale nelle
+loro rispettive entità HTML con le funzioni `htmlentities` o `htmlspecialchars`.
 
-Another example is passing options to be executed on the command line. This can be extremely dangerous (and is usually
-a bad idea), but you can use the built-in `escapeshellarg()` function to sanitize the executed command's arguments.
+Un altro esempio è il passaggio di opzioni alla linea di comando. Questo può
+essere molto pericoloso (ed è solitamente una cattiva idea), ma puoi usare la
+funzione nativa `escapeshellarg` per sanitizzare gli argomenti del comando
+eseguito.
 
-One last example is accepting foreign input to determine a file to load from the filesystem. This can be exploited by
-changing the filename to a file path. You need to remove `"/"`, `"../"`, [null bytes][6], or other characters from the
-file path so it can't load hidden, non-public, or sensitive files.
+Un ultimo esempio è l'accettazione di input esterno per determinare un file da
+caricare dal filesystem. Questa vulnerabilità può essere sfruttata cambiando il
+nome di file in un path di file. Devi rimuovere "/", "../", i [byte nulli][6] o
+altri caratteri dal path in modo che non possa caricare file nascosti, non
+pubblici o con informazioni sensibili.
 
-* [Learn about data filtering][1]
-* [Learn about `filter_var`][4]
-* [Learn about `filter_input`][5]
-* [Learn about handling null bytes][6]
+* [Impara a filtare i dati][1]
+* [Impara a usare `filter_var`][4]
+* [Impara a usare `filter_input`][5]
+* [Impara a gestire i byte nulli][6]
 
-### Sanitization
+### Sanitizzazione
 
-Sanitization removes (or escapes) illegal or unsafe characters from foreign input.
+La sanitizzazione rimuove (o fa l'escape) i caratteri non permessi o pericolosi
+dall'input esterno.
 
-For example, you should sanitize foreign input before including the input in HTML or inserting it into a raw SQL query.
-When you use bound parameters with [PDO](#databases), it will sanitize the input for you.
+Per esempio, dovresti sanitizzare l'input esterno prima di includerlo in codice
+HTML o inserirlo in una query SQL grezza. Quando usi i parametri di
+[PDO](#database), esso sanitizzerà l'input per te.
 
-Sometimes it is required to allow some safe HTML tags in the input when including it in the HTML page. This is very
-hard to do and many avoid it by using other more restricted formatting like Markdown or BBCode, although whitelisting
-libraries like [HTML Purifier][html-purifier] exist for this reason.
+A volte è richiesto di consnetire alcuni tag HTML sicuri nell'input quando
+viene incluso nella pagina HTML. Questo è molto difficile da fare e molti lo
+evitano usando una formattazione più ristretta come Markdown o BBCode, tuttavia
+esistono alcune librerie come [HTML Purifier][html-purifier] per svolgere questo
+compito.
 
-[See Sanitization Filters][2]
+[Vedi i filtri di sanitizzazione][2]
 
 ### Unserialization
 
-It is dangerous to `unserialize()` data from users or other untrusted sources.  Doing so can allow malicious users to instantiate objects (with user-defined properties) whose destructors will be executed, **even if the objects themselves aren't used**.  You should therefore avoid unserializing untrusted data.
+È pericoloso deserializzare (`unserialize()`) dati da utenti o altre fonti non attendibili. Ciò può consentire agli utenti malintenzionati di creare un'istanza di oggetti (con proprietà definite dall'utente) i cui distruttori verranno eseguiti, **anche se gli oggetti stessi non vengono utilizzati**. Dovresti quindi evitare di deserializzare i dati non attendibili.
 
-If you absolutely must unserialize data from untrusted sources, use PHP 7's [`allowed_classes`][unserialize] option to restrict which object types are allowed to be unserialized.
+Se devi assolutamente deserializzare i dati da fonti non attendibili, usa l'opzione [`allowed_classes`][unserialize] di PHP 7 per limitare i tipi di oggetto che possono essere deserializzati.
 
-### Validation
+### Validazione
 
-Validation ensures that foreign input is what you expect. For example, you may want to validate an email address, a
-phone number, or age when processing a registration submission.
+La validazione serve per assicurarsi che l'input esterno contenga ciò che ti
+aspetti. Per esempio, potresti voler validare un indirizzo email, un numero di
+telefono o un'età quando processi una richiesta di registrazione.
 
-[See Validation Filters][3]
+[Vedi i filtri di validazione][3]
 
-
-[1]: https://secure.php.net/book.filter
-[2]: https://secure.php.net/filter.filters.sanitize
-[3]: https://secure.php.net/filter.filters.validate
-[4]: https://secure.php.net/function.filter-var
-[5]: https://secure.php.net/function.filter-input
-[6]: https://secure.php.net/security.filesystem.nullbytes
+[1]: http://www.php.net/manual/it/book.filter.php
+[2]: http://www.php.net/manual/it/filter.filters.sanitize.php
+[3]: http://www.php.net/manual/it/filter.filters.validate.php
+[4]: http://php.net/manual/it/function.filter-var.php
+[5]: http://www.php.net/manual/it/function.filter-input.php
+[6]: http://php.net/manual/it/security.filesystem.nullbytes.php
 [html-purifier]: http://htmlpurifier.org/
 [unserialize]: https://secure.php.net/manual/function.unserialize.php

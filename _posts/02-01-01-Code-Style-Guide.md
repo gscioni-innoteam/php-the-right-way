@@ -1,23 +1,30 @@
 ---
 anchor: code_style_guide
+title:  Stile di codifica
 ---
 
-# Code Style Guide {#code_style_guide_title}
+# Stile di codifica {#code_style_guide_title}
 
-The PHP community is large and diverse, composed of innumerable libraries, frameworks, and components. It is common for
-PHP developers to choose several of these and combine them into a single project. It is important that PHP code adheres
-(as close as possible) to a common code style to make it easy for developers to mix and match various libraries for
-their projects.
+La comunità PHP è grande e diversificata, fatta di innumerevoli librerie,
+framework e componenti. È comune per gli sviluppatori PHP scegliere diversi di
+questi e combinarli in un singolo progetto. È importante che il codice PHP
+aderisca (il più fedelmente possibile) a uno stile di codifica comune per
+rendere facile agli sviluppatori mischiare e usare diverse librerie nei loro
+progetti.
 
-The [Framework Interop Group][fig] has proposed and approved a series of style recommendations. Not all of them relate
-to code-style, but those that do are [PSR-1][psr1], [PSR-12][psr12] and [PSR-4][psr4]. These
-recommendations are merely a set of rules that many projects like Drupal, Zend, Symfony, Laravel, CakePHP, phpBB, AWS SDK,
-FuelPHP, Lithium, etc. are adopting. You can use them for your own projects, or continue to use your own
-personal style.
+Il [Framework Interop Group][fig] ha proposto e approvato una serie di
+raccomandazioni di stile. Non tutte riguardano lo stile del codice, ma quelle
+che lo riguardano sono note come [PSR-1][psr1], [PSR-12][psr12] and [PSR-4][psr4]. Queste raccomandazioni non sono che una lista di regole che
+alcuni progetti come Drupal, Zend, Symfony, CakePHP, phpBB, AWS SDK, FuelPHP,
+Lithium etc. iniziano ad adottare. Puoi usarle in uno dei tuoi progetti,
+o continuare a usare il tuo stile personale.
 
-Ideally, you should write PHP code that adheres to a known standard. This could be any combination of PSRs, or one
-of the coding standards made by PEAR or Zend. This means other developers can easily read and work with your code, and
-applications that implement the components can have consistency even when working with lots of third-party code.
+Idealmente dovresti scrivere codice PHP che aderisce ad uno standard noto. Può
+essere una qualunque combinazione dei PSR o uno degli standard di codifica di
+PHP o Zend. Questo significa che altri sviluppatori potranno facilmente leggere
+e lavorare col tuo codice, e le applicazioni che implementano i componenti
+potranno essere consistenti anche quando lavorano con molto codice di terze
+parti.
 
 * [Read about PSR-1][psr1]
 * [Read about PSR-12][psr12]
@@ -25,37 +32,41 @@ applications that implement the components can have consistency even when workin
 * [Read about PEAR Coding Standards][pear-cs]
 * [Read about Symfony Coding Standards][symfony-cs]
 
-You can use [PHP_CodeSniffer][phpcs] to check code against any one of these recommendations, and plugins for text
-editors like [Sublime Text][st-cs] to be given real-time feedback.
+Puoi usare [PHP_CodeSniffer][phpcs] per controllare che il codice rispetti
+queste raccomandazioni, e plugin per editor di testo come
+[Sublime Text 2][st-cs] per avere feedback in tempo reale.
 
-You can fix the code layout automatically by using one of the following tools:
+Puoi anche aggiustare automaticamente il layout del codice utilizzando uno di questi tools:
 
-- One is the [PHP Coding Standards Fixer][phpcsfixer] which has a very well tested codebase.
-- Also, the [PHP Code Beautifier and Fixer][phpcbf] tool which is included with PHP_CodeSniffer can be used to adjust your code accordingly.
+- [PHP Coding Standards Fixer][phpcsfixer] di
+  Fabien Potencier, testato scrupolosamente. È più grande e più lento, ma molto
+  stabile e usato da alcuni grandi progetti come Magento e Symfony.
+- Also, the [PHP Code Beautifier and Fixer][phpcbf] tool incluso con PHP_CodeSniffer in grado di aggiustare il tuo codice.
 
-And you can run phpcs manually from shell:
+Puoi eseguire phpcs manualmente da shell:
 
     phpcs -sw --standard=PSR1 file.php
 
-It will show errors and describe how to fix them.
-It can also be helpful to include this command in a git hook.
-That way, branches which contain violations against the chosen standard cannot enter the repository until those
-violations have been fixed.
+Ti mostrerà gli errori insieme ad una descrizione su come aggiustarli.
+Può anche essere un ottimo tool per eseguire operazioni automatizzate all'interno degli hooks di Git.
+In questo modo qualsiasi commit che contiene delle violazioni riguardo gli standard non potrà essere committato fino a quando questi
+ errori non verranno aggiustati.
 
-If you have PHP_CodeSniffer, then you can fix the code layout problems reported by it, automatically, with the
-[PHP Code Beautifier and Fixer][phpcbf].
+Se hai PHP_CodeSniffer, puoi aggiustare il codice automaticamente con [PHP Code Beautifier and Fixer][phpcbf].
 
     phpcbf -w --standard=PSR1 file.php
 
-Another option is to use the [PHP Coding Standards Fixer][phpcsfixer].
-It will show what kind of errors the code structure had before it fixed them.
+Un'altra opzione è quella di usare [PHP Coding Standards Fixer][phpcsfixer].
+Ti mostrerà che tipo di errori sono presenti prima di aggiustarli automaticamente.
 
     php-cs-fixer fix -v --rules=@PSR1 file.php
 
-English is preferred for all symbol names and code infrastructure. Comments may be written in any language easily
-readable by all current and future parties who may be working on the codebase.
+La lingua inglese è preferita per tutti i nomi di simboli e infrastrutture del
+codice. I commenti possono essere scritti in qualunque lingua facilmente
+comprensibile da tutte le parti presenti e future che dovranno lavorare sul
+codice.
 
-Finally, a good supplementary resource for writing clean PHP code is [Clean Code PHP][cleancode].
+Infine, una buona risorsa supplementare per scrivere del buon codice è [Clean Code PHP][cleancode].
 
 [fig]: https://www.php-fig.org/
 [psr1]: https://www.php-fig.org/psr/psr-1/

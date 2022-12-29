@@ -1,10 +1,10 @@
 ---
-title: PHP PaaS Providers
+title: Fornitori PHP PaaS
 isChild: true
 anchor:  php_paas_providers
 ---
 
-## PHP PaaS Providers {#php_paas_providers_title}
+## Fornitori PHP PaaS {#php_paas_providers_title}
 
 * [AppFog](https://www.ctl.io/appfog/)
 * [Amezmo](https://www.amezmo.com)
@@ -23,4 +23,4 @@ anchor:  php_paas_providers
 * [Platform.sh](https://platform.sh/)
 * [Red Hat OpenShift](https://www.openshift.com/)
 
-To see which versions these PaaS hosts are running, head over to [PHP Versions](http://phpversions.info/paas-hosting/).
+Per vedere quali versioni sono in esecuzione questi host PaaS, vai su [PHP Versions](http://phpversions.info/paas-hosting/).

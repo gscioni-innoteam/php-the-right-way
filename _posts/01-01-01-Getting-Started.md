@@ -1,6 +1,7 @@
 ---
 anchor: getting_started
+title: Per iniziare
 ---
 
-# Getting Started {#getting_started_title}
+# Per iniziare {#getting_started_title}
 

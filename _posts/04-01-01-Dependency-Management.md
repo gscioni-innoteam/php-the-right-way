@@ -1,17 +1,20 @@
 ---
 anchor: dependency_management
+title:  Gestione delle dipendenze
 ---
 
-# Dependency Management {#dependency_management_title}
+# Gestione delle dipendenze {#dependency_management_title}
 
-There are a ton of PHP libraries, frameworks, and components to choose from. Your project will likely use 
-several of them — these are project dependencies. Until recently, PHP did not have a good way to manage
-these project dependencies. Even if you managed them manually, you still had to worry about autoloaders.
-That is no longer an issue.
+Ci sono moltissime librerie PHP, framework e componenti tra cui scegliere. Il
+tuo progetto, probabilmente, ne userà diversi. Queste sono dipendenze del
+progetto. Fino a poco tempo fa, PHP non aveva un buon modo per gestire le
+dipendenze del progetto. Anche se le gestivi manualmente, dovevi comunque
+preoccuparti degli autoloader. Non più.
 
-Currently there are two major package management systems for PHP - [Composer] and [PEAR]. Composer is currently
-the most popular package manager for PHP, however for a long time PEAR was the primary package manager in use.
-Knowing PEAR's history is a good idea, since you may still find references to it even if you never use it.
+Attualmente ci sono due grandi sistemi di gestione dei pacchetti per PHP:
+[Composer] e [PEAR]. Composer è il gestore di pacchetti principale per PHP, ma
+per lungo tempo PEAR ha ricoperto quel ruolo. Sapere cos'è PEAR è una buona idea
+perché potresti trovare diversi riferimenti a esso, anche se non lo userai mai.
 
 [Composer]: /#composer_and_packagist
 [PEAR]: /#pear

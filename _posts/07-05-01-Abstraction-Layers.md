@@ -1,19 +1,23 @@
 ---
 isChild: true
-title:   Abstraction Layers
+title:   Livelli di astrazione
 anchor:  databases_abstraction_layers
 ---
 
-## Abstraction Layers {#databases_abstraction_layers_title}
+## Livelli di astrazione {#databases_abstraction_layers_title}
 
-Many frameworks provide their own abstraction layer which may or may not sit on top of [PDO][1]. These will often
-emulate features for one database system that is missing from another by wrapping your queries in PHP methods, giving
-you actual database abstraction instead of just the connection abstraction that PDO provides. This will of course add a
-little overhead, but if you are building a portable application that needs to work with MySQL, PostgreSQL and SQLite
-then a little overhead will be worth it for the sake of code cleanliness.
+Molti framework forniscono il proprio livello di astrazione, che a volte è
+basato su [PDO][1]. Spesso questi emulano in un sistema di database funzionalità
+presenti solo in un altro, fornendoti dei metodi PHP per costruire le tue query;
+in questo modo forniscono un'astrazione reale del database invece della semplice
+astrazione della connessione fornita da PDO. Ovviamente, questo complica
+leggermente le cose, ma se stai costruendo un'applicazione portatile che deve
+funzionare con MySQL, PostgreSQL e SQLite, allora un po' di complicazione può
+essere introdotta per avere del codice pulito.
 
-Some abstraction layers have been built using the [PSR-0][psr0] or [PSR-4][psr4] namespace standards so can be
-installed in any application you like:
+Alcuni livelli di astrazione sono stati costruiti usando gli standard di
+namespace [PSR-0][psr0] o [PSR-4][psr4], in modo che possano essere installati
+in qualunque applicazione:
 
 * [Atlas][5]
 * [Aura SQL][6]

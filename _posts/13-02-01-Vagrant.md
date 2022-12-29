@@ -1,31 +1,49 @@
 ---
 isChild: true
+title:   Vagrant
 anchor:  vagrant
 ---
 
 ## Vagrant {#vagrant_title}
 
-[Vagrant] helps you build your virtual boxes on top of the known virtual environments and will configure these
-environments based on a single configuration file. These boxes can be set up manually, or you can use "provisioning"
-software such as [Puppet] or [Chef] to do this for you. Provisioning the base box is a great way to ensure that
-multiple boxes are set up in an identical fashion and removes the need for you to maintain complicated "set up"
-command lists. You can also "destroy" your base box and recreate it without many manual steps, making it easy to create
-a "fresh" installation.
+[Vagrant] ti aiuta a costruire le tue macchine virtuali sfruttando
+ambienti virtuali noti, e configura questi ambienti basandosi su un singolo file
+di configurazione. Queste macchine possono essere configurate manualmente,
+oppure puoi usare un software di "provisioning" come [Puppet] o
+[Chef] per farlo al posto tuo. Eseguire il provisioning della macchina di
+base è un ottimo modo per assicurarti che più macchine vengano configurate nella
+stessa maniera e rimuove la necessità di mantenere complicate liste di comandi
+d'installazione. Puoi anche "distruggere" la macchina e ricrearla senza troppi
+passi manuali, rendendo così semplice creare un'installazione "fresca".
 
-Vagrant creates folders for sharing your code between your host and your virtual machine, which means that you can
-create and edit your files on your host machine and then run the code inside your virtual machine.
+Vagrant crea delle cartelle per condividere il codice tra l'host e la tua
+macchina virtuale, il che significa che puoi creare e modificare file sul tuo
+host e poi eseguire il codice nella macchina virtuale.
 
-### A little help
+### Un po' di aiuto
 
-If you need a little help to start using Vagrant there are some services that might be useful:
+Se ti serve un picolo aiuto per iniziare a usare Vagrant ci sono dei servizi che
+potrebbero essere utili:
 
-- [Puphpet][Puphpet]: simple GUI to set up virtual machines for PHP development. **Heavily focused in PHP**. Besides local VMs,
-it can be used to deploy to cloud services as well. The provisioning is made with Puppet.
-- [Phansible][Phansible]: provides an easy to use interface that helps you generate Ansible Playbooks for PHP based projects.
+- [Rove]: un servizio che ti permette di pre-generare delle build Vagrant
+  tipiche (PHP tra le varie opzioni). Il provisioning è effettuato con Chef.
 
+- [Puphpet]: una semplice GUI per configurare macchine virtuali per lo sviluppo
+  PHP. **Fortemente concentrato su PHP**. Oltre alle macchine virtuali locali,
+  può anche essere usato per configurare servizi cloud. Il provisioning è
+  effettuato con Puppet.
 
-[Vagrant]: https://www.vagrantup.com/
-[Puppet]: https://puppet.com/
-[Chef]: https://www.chef.io/
-[Puphpet]: https://github.com/puphpet/puphpet
+- [Protobox]: è un livello costruito su Vagrant con una GUI web per configurare
+  macchine virtuali per lo sviluppo web. Un singolo documento YAML controlla
+  tutto ciò che viene installato sulla macchina virtuale.
+
+- [Phansible]: fornisce un'interfaccia di semplice utilizzo che aiuta a generare
+  Playbook Ansible per progetti basati su PHP.
+
+[Vagrant]: http://vagrantup.com/
+[Puppet]: http://www.puppetlabs.com/
+[Chef]: http://www.opscode.com/
+[Rove]: http://rove.io/
+[Puphpet]: https://puphpet.com/
+[Protobox]: http://getprotobox.com/
 [Phansible]: http://phansible.com/

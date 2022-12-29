@@ -1,8 +1,9 @@
 ---
-title:  Servers and Deployment
+title:  Server e pubblicazione
 anchor: servers_and_deployment
 ---
 
-# Servers and Deployment {#servers_and_deployment_title}
+# Server e pubblicazione {#servers_and_deployment_title}
 
-PHP applications can be deployed and run on production web servers in a number of ways.
+Le applicazioni PHP possono essere pubblicate ed eseguite sui Web server di
+produzione in diversi modi.

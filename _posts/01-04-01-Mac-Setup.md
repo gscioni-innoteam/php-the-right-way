@@ -1,23 +1,24 @@
 ---
 isChild: true
+title:   Configurazione Mac
 anchor:  mac_setup
 ---
 
-## Mac Setup {#mac_setup_title}
+## Configurazione Mac {#mac_setup_title}
 
-macOS comes prepackaged with PHP but it is normally a little behind the latest stable release. There are multiple ways to install the latest PHP version on macOS.
+macOS viene fornito con una versione pre-pacchettizzata di PHP, ma è normalmente un po' più vecchia dell'ultima versione stabile. Ci sono diversi modi per installare PHP su macOS.
 
-### Install PHP via Homebrew
+### Installare PHP tramite Homebrew
 
-[Homebrew] is a package manager for macOS that helps you easily install PHP and various extensions. The Homebrew core repository provides "formulae" for PHP 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0 and PHP 8.1. Install the latest version with this command:
+[Homebrew] è un potente gestore di pacchetti per macOS che può aiutarti a installare facilmente PHP e varie estensioni. Homebrew PHP è un repository che contiene "formule" per Homebrew relative a PHP e ti permetterà di installare PHP. A questo punto, puoi installare PHP 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1 e PHP 8.2 usando il comando brew install e cambiando la versione attiva modificando la variabile PATH.
 
 ```
 brew install php@8.1
 ```
 
-You can switch between Homebrew PHP versions by modifying your `PATH` variable. Alternatively, you can use [brew-php-switcher][brew-php-switcher] to switch PHP versions automatically.
+Puoi anche switchare tra le varie versioni modificando la variabile `PATH`. In alternativa, puoi utilizzare [brew-php-switcher][brew-php-switcher] per cambiare versione automaticamente.
 
-You can also switch between PHP versions manually by unlinking and linking the wanted version:
+Puoi anche utilizzare diverse versioni di PHP manualmente utilizzando le azioni link e unlink di brew:
 
 ```
 brew unlink php
@@ -29,47 +30,41 @@ brew unlink php
 brew link --overwrite php@8.1
 ```
 
-### Install PHP via Macports
+### Installare PHP tramite Macports
 
-The [MacPorts] Project is an open-source community initiative to design an
-easy-to-use system for compiling, installing, and upgrading either
-command-line, X11 or Aqua based open-source software on the OS X operating
-system.
+Il progetto MacPorts è un'iniziativa della comunità open source per il design di un sistema di semplice utilizzo per la compilazione, l'installazione e l'aggiornamento di software open source per linea di comando, X11 o Acqua sul sistema operativo OS X.
 
-MacPorts supports pre-compiled binaries, so you don't need to recompile every
-dependency from the source tarball files, it saves your life if you don't
-have any package installed on your system.
+MacPorts supporta i binari precompilati, quindi non devi ricompilare le dipendenze dai sorgenti ogni volta. È un salvavita se non hai alcun pacchetto installato sul sistema.
 
-At this point, you can install `php54`, `php55`, `php56`, `php70`, `php71`, `php72`, `php73`, `php74`, `php80` or `php81` using the `port install` command, for example:
+In questo momento puoi installare `php54`, `php55`, `php56`, `php70`, `php71`, `php72`, `php73`, `php74`, `php80`, `php81` o `php82` usando il comando `port install`, per esempio:
 
     sudo port install php74
     sudo port install php81
 
-And you can run `select` command to switch your active PHP:
+E puoi eseguire il comando `select` per cambiare la versione attiva di PHP:
 
     sudo port select --set php php81
 
-### Install PHP via phpbrew
+### Installare PHP tramite phpbrew
 
-[phpbrew] is a tool for installing and managing multiple PHP versions. This can be really useful if two different
-applications/projects require different versions of PHP, and you are not using virtual machines.
+[phpbrew] è uno strumento per l'installazione e la gestione di versioni multiple di PHP. Può essere molto utile se due applicazioni/progetti differenti richiedono versioni differenti di PHP e non stai usando le macchine virtuali.
 
-### Install PHP via Liip's binary installer
+### Installare PHP dall'installer binario di Liip
 
-Another popular option is [php-osx.liip.ch] which provides one liner installation methods for versions 5.3 through 7.3.
-It doesn't overwrite the PHP binaries installed by Apple, but installs everything in a separate location (/usr/local/php5).
+Un'altra opzione popolare è [php-osx.liip.ch] che fornisce un metodo di installazione alternativo per le versioni 5.3 fino al 7.3.
+Questo non sovrascriverà i binari PHP installati da Apple ma provvederà ad una installazione su percorso separato (/usr/local/php5).
 
-### Compile from Source
+### Compilare il sorgente
 
-Another option that gives you control over the version of PHP you install, is to [compile it yourself][mac-compile].
-In that case be sure to have installed either [Xcode][xcode-gcc-substitution] or Apple's substitute
-["Command Line Tools for XCode"] downloadable from Apple's Mac Developer Center.
+Un'altra opzione che ti fornisce controllo sulla versione di PHP che installi è 
+[compilarlo tu stesso]. In questo caso assicurati di avere installato [Xcode] o il sostituto di Apple 
+["Strumenti da riga di comando per XCode"], scaricabile dal Centro Sviluppatori Mac di Apple.
 
-### All-in-One Installers
+### Installatori all-in-one
 
-The solutions listed above mainly handle PHP itself, and do not supply things like [Apache][apache], [Nginx][nginx] or a SQL server.
-"All-in-one" solutions such as [MAMP][mamp-downloads] and [XAMPP][xampp] will install these other bits of software for
-you and tie them all together, but ease of setup comes with a trade-off of flexibility.
+Le soluzioni elencate sopra gestiscono principalmente solo PHP, e non forniscono cose come Apache, Nginx o un server SQL. 
+Le soluzioni "all-in-one" come [MAMP] e [XAMPP] installeranno questi altri software per te e li integreranno l'uno con l'altro, 
+ma la facilità d'installazione compromette la flessibilità.
 
 [Homebrew]: https://brew.sh/
 [Homebrew PHP]: https://github.com/Homebrew/homebrew-php#installation

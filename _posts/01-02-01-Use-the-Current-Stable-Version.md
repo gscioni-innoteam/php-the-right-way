@@ -1,14 +1,14 @@
 ---
-title:   Use the Current Stable Version (8.1)
+title:   Usa l'ultima versione stabile (8.2)
 isChild: true
 anchor:  use_the_current_stable_version
 ---
 
-## Use the Current Stable Version (8.1) {#use_the_current_stable_version_title}
+## Usa l'ultima versione stabile (8.2) {#use_the_current_stable_version_title}
 
-If you are getting started with PHP, start with the current stable release of [PHP 8.1][php-release]. PHP 8.x adds many [new features](#language_highlights) over the older 7.x and 5.x versions. The engine has been largely re-written, and PHP is now even quicker than older versions. PHP 8 is a major update of the language and contains many new features and optimizations.
+Se hai appena iniziato con PHP, assicurati di usare l'ultima versione stabile di [PHP 8.2][php-release]. Il team di PHP ha aggiunto [nuove potenti funzionalità](#language_highlights) rispetto alle vecchie versioni del ramo 7.x e 5.x.
 
-You should try to upgrade to the latest stable version quickly - PHP 7.4 [is already End of Life](http://php.net/supported-versions.php). Upgrading is easy, as there are not many [backwards compatibility breaks][php-bc]. If you are not sure which version a function or feature is in, you can check the PHP documentation on the [php.net][php-docs] website.
+Qualora tu usassi delle versioni oramai in End of Life (EOL) quali 7.x o 5.x dovresti aggiornare quanto prima alla stable version sopra indicata. L'aggiornamento è relativamente semplice, specie se provenienti da php 7.4, in quanto non vi sono troppi [cambiamenti incompatibili][php-bc]. Se non sei sicuro a quale versione faccia riferimento una feature o una funzione ti invitiamo a visitare la documentazione ufficiale sul sito [php.net][php-docs]. 
 
 [php-release]: http://php.net/downloads.php
 [php-docs]: http://php.net/manual/

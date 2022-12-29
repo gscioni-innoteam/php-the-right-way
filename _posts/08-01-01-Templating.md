@@ -5,7 +5,10 @@ anchor: templating
 
 # Templating {#templating_title}
 
-Templates provide a convenient way of separating your controller and domain logic from your presentation logic.
-Templates typically contain the HTML of your application, but may also be used for other formats, such as XML.
-Templates are often referred to as "views", which make up **part of** the second component of the
-[model–view–controller](/pages/Design-Patterns.html#model-view-controller) (MVC) software architecture pattern.
+I template sono un modo comodo per separare la logica dei controller e quella di
+dominio dalla logica di presentazione. Tipicamente i template contengono il
+codice HTML della tua applicazione, ma possono essere usati anche per altri
+formati, come l'XML. I template vengono spesso chiamati anche "viste", che
+costituiscono **parte** del secondo componente del pattern di architettura del
+software [model–view–controller](/pages/Design-Patterns.html#model-view-controller)
+(MVC).

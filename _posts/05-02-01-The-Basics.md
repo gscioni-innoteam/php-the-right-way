@@ -1,13 +1,16 @@
 ---
 isChild: true
+title:   Le basi
 anchor:  the_basics
 ---
 
-## The Basics {#the_basics_title}
+## Le basi {#the_basics_title}
 
-PHP is a vast language that allows coders of all levels the ability to produce code not only quickly, but efficiently.
-However, while advancing through the language, we often forget the basics that we first learnt (or overlooked) in favor
-of short cuts and/or bad habits. To help combat this common issue, this section is aimed at reminding coders of the
-basic coding practices within PHP.
+PHP è un linguaggio vasto che permette a programmatori di ogni livello di
+produrre codice non solo velocemente, ma efficientemente. Tuttavia, avanzando
+nell'apprendimento del linguaggio, ci scordiamo spesso le basi che abbiamo
+imparato (o su cui abbiamo sorvolato) in favore di scorciatoie e/o cattive
+pratiche. Per aiutare a combattere questo male comune, questa sezione mira a
+ricordare ai programmatori delle pratiche di codifica di base in PHP.
 
-* Continue reading on [The Basics](/pages/The-Basics.html)
+* Continua a leggere [Le basi](/pages/The-Basics.html)

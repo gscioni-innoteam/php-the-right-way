@@ -1,48 +1,56 @@
 ---
-title:   Virtual or Dedicated Servers
+title:   Server virtuali o dedicati
 isChild: true
 anchor:  virtual_or_dedicated_servers
 ---
 
-## Virtual or Dedicated Servers {#virtual_or_dedicated_servers_title}
+## Server virtuali o dedicati {#virtual_or_dedicated_servers_title}
 
-If you are comfortable with systems administration, or are interested in learning it, virtual or dedicated servers give
-you complete control of your application's production environment.
+Se hai dimestichezza con l'amministrazione di un sistema o vuoi impararla, i
+server virtuali o dedicati ti danno totale controllo sull'ambiente di produzione
+della tua applicazione.
 
-### nginx and PHP-FPM
+### nginx e PHP-FPM
 
-PHP, via PHP's built-in FastCGI Process Manager (FPM), pairs really nicely with [nginx], which is a lightweight,
-high-performance web server. It uses less memory than Apache and can better handle more concurrent requests. This is
-especially important on virtual servers that don't have much memory to spare.
+PHP, tramite il FastCGI Process Manager (FPM) integrato, si integra molto bene
+con [nginx], che è un server leggero dalle alte prestazioni. Usa meno memoria di
+Apache e gestisce meglio le richieste simultanee. Questo è particolarmente
+importante su server virtuali che non hanno molta memoria.
 
-* [Read more on nginx][nginx]
-* [Read more on PHP-FPM][phpfpm]
-* [Read more on setting up nginx and PHP-FPM securely][secure-nginx-phpfpm]
+* [Scopri nginx][nginx]
+* [Scopri PHP-FPM][phpfpm]
+* [Scopri come configurare nginx e PHP-FPM in modo sicuro][secure-nginx-phpfpm]
 
-### Apache and PHP
+### Apache e PHP
 
-PHP and Apache have a long history together. Apache is wildly configurable and has many available
-[modules][apache-modules] to extend functionality. It is a popular choice for shared servers and an easy setup for PHP
-frameworks and open source apps like WordPress. Unfortunately, Apache uses more resources than nginx by default and
-cannot handle as many visitors at the same time.
+PHP e Apache hanno fatto molta storia insieme. Apache è totalmente configurabile
+e ha molti [moduli][apache-modules] che estendono le sue funzionalità. È una
+scelta comune per i server condivisi e una configurazione facile per i framework
+PHP e le applicazioni open source come WordPress. Sfortunatamente, Apache usa
+più risorse di nginx di default e non riesce a gestire così tanti visitatori
+contemporeanei.
 
-Apache has several possible configurations for running PHP. The most common and easiest to setup is the [prefork MPM]
-with mod_php5. While it isn't the most memory efficient, it is the simplest to get working and to use. This is probably
-the best choice if you don't want to dig too deeply into the server administration aspects. Note that if you use
-mod_php5 you MUST use the prefork MPM.
+Ci sono molte configurazioni diverse per eseguire Apache con PHP. La più comune
+e la più semplice da configurare è il [prefork MPM] con mod_php5. Nonostante
+questa non sia la più efficiente in termini di consumo di memoria, è la più
+semplice da configurare e usare. Questa è probabilmente la scelta migliore se
+non vuoi addentrarti troppo in profondità nell'amministrazione dei server. Nota
+che per usare mod_php5 DEVI usare il prefork MPM.
 
-Alternatively, if you want to squeeze more performance and stability out of Apache then you can take advantage of the
-same FPM system as nginx and run the [worker MPM] or [event MPM] with mod_fastcgi or mod_fcgid. This configuration will
-be significantly more memory efficient and much faster but it is more work to set up.
+In alternativa, se vuoi ottenere migliori performance e stabilità con Apache
+puoi usare lo stesso sistema FPM di nginx ed eseguire l'[MPM worker] o
+l'[MPM event] con mod_fastcgi o mod_fcgid. Questa configurazione sarà molto più
+efficiente nell'utilizzo di memoria e molto più veloce, ma è più complicata da
+installare.
 
-If you are running Apache 2.4 or later, you can use [mod_proxy_fcgi] to get great performance that is easy to setup.
+Se stai utilizzando Apache 2.4 o successivo, puoi utilizzare [mod_proxy_fcgi] per ottenere ottime prestazioni facili da configurare.
 
-* [Read more on Apache][apache]
-* [Read more on Multi-Processing Modules][apache-MPM]
-* [Read more on mod_fastcgi][mod_fastcgi]
-* [Read more on mod_fcgid][mod_fcgid]
-* [Read more on mod_proxy_fcgi][mod_proxy_fcgi]
-* [Read more on setting up Apache and PHP-FPM with mod_proxy_fcgi][tutorial-mod_proxy_fcgi]
+* [Leggi di più su Apache][apache]
+* [Leggi di più su Multi-Processing Modules][apache-MPM]
+* [Leggi di più su mod_fastcgi][mod_fastcgi]
+* [Leggi di più su mod_fcgid][mod_fcgid]
+* [Leggi di più su mod_proxy_fcgi][mod_proxy_fcgi]
+* [Leggi di più su impostare Apache e PHP-FPM con mod_proxy_fcgi][tutorial-mod_proxy_fcgi]
 
 
 [nginx]: https://nginx.org/

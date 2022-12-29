@@ -1,23 +1,24 @@
 ---
 isChild: true
+title:   Componenti
 anchor:  components
 ---
 
-## Components {#components_title}
+## Componenti {#components_title}
 
-As mentioned above "Components" are another approach to the common goal of creating, distributing and implementing
-shared code. Various component repositories exist, the main two of which are:
+Come accennato in precedenza, i "Componenti" sono un altro approccio all'obiettivo comune di creare, distribuire e implementare
+codice condiviso. Esistono vari repository di componenti, i due principali sono:
 
 * [Packagist]
 * [PEAR]
 
-Both of these repositories have command line tools associated with them to help the installation and upgrade processes,
-and have been explained in more detail in the [Dependency Management] section.
+Entrambi questi repository hanno strumenti da riga di comando associati per aiutare i processi di installazione e aggiornamento,
+e sono stati spiegati più dettagliatamente nella sezione [Gestione delle dipendenze].
 
-There are also component-based frameworks and component-vendors that offer no framework at all. These projects provide
-another source of packages which ideally have little to no dependencies on other packages, or specific frameworks.
+Esistono anche framework basati su componenti e fornitori di componenti che non offrono alcun framework. Questi progetti forniscono
+un'altra fonte di pacchetti che idealmente hanno poca o nessuna dipendenza da altri pacchetti o framework specifici.
 
-For example, you can use the [FuelPHP Validation package], without needing to use the FuelPHP framework itself.
+Ad esempio, puoi utilizzare il [pacchetto di convalida FuelPHP], senza dover utilizzare il framework FuelPHP stesso.
 
 * [Aura]
 * CakePHP Components
@@ -36,8 +37,8 @@ For example, you can use the [FuelPHP Validation package], without needing to us
     * [Eloquent ORM]
     * [Queue]
 
-_Laravel's [Illuminate components] will become better decoupled from the Laravel framework. For now, only the
-components best decoupled from the Laravel framework are listed above._
+_I [componenti Illuminate] di Laravel diventeranno con il passare del tempo meglio disaccoppiati dal framework stesso. Per ora solo il
+i componenti meglio disaccoppiati dal framework Laravel sono elencati sopra._
 
 
 [Packagist]: /#composer_and_packagist
@@ -52,7 +53,7 @@ components best decoupled from the Laravel framework are listed above._
 [IoC Container]: https://github.com/illuminate/container
 [Eloquent ORM]: https://github.com/illuminate/database
 [Queue]: https://github.com/illuminate/queue
-[Illuminate components]: https://github.com/illuminate
+[componenti Illuminate]: https://github.com/illuminate
 [Collection]: https://github.com/cakephp/collection
 [Database]: https://github.com/cakephp/database
 [Datasource]: https://github.com/cakephp/datasource

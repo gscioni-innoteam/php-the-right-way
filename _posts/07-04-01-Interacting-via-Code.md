@@ -1,65 +1,71 @@
 ---
 isChild: true
-title:   Interacting with Databases
+title:   Interagire con i database
 anchor:  databases_interacting
 ---
 
-## Interacting with Databases {#databases_interacting_title}
+## Interagire con i database {#databases_interacting_title}
 
-When developers first start to learn PHP, they often end up mixing their database interaction up with their
-presentation logic, using code that might look like this:
+Quando gli sviluppatori iniziano a studiare PHP, spesso finiscono per mescolare
+l'interazione col database con la logica di presentazione, usando codice come
+questo:
 
 {% highlight php %}
 <ul>
 <?php
-foreach ($db->query('SELECT * FROM table') as $row) {
-    echo "<li>".$row['field1']." - ".$row['field1']."</li>";
+foreach ($db->query('SELECT * FROM tabella') as $row) {
+    echo "<li>".$row['campo1']." - ".$row['campo2']."</li>";
 }
 ?>
 </ul>
 {% endhighlight %}
 
-This is bad practice for all sorts of reasons, mainly that it's hard to debug, hard to test, hard to read and it is
-going to output a lot of fields if you don't put a limit on there.
+Questo è una pessima pratica per diverse ragioni: principalmente è difficile da
+debuggare, difficile da testare, difficile da leggere e stamperà molti campi se
+non imposti un limite.
 
-While there are many other solutions to doing this - depending on if you prefer [OOP](/#object-oriented-programming) or
-[functional programming](/#functional-programming) - there must be some element of separation.
+Nonostante ci siano molte soluzioni per farlo - a seconda che si preferisca
+l'[OOP](/#object-oriented-programming) o la
+[programmazione funzionale](/#functional-programming) - ci dev'essere un
+elemento di separazione.
 
-Consider the most basic step:
+Considera il passo più semplice:
 
 {% highlight php %}
 <?php
 function getAllFoos($db) {
-    return $db->query('SELECT * FROM table');
+    return $db->query('SELECT * FROM tabella');
 }
 
-$results = getAllFoos($db);
-foreach ($results as $row) {
-    echo "<li>".$row['field1']." - ".$row['field1']."</li>"; // BAD!!
+foreach (getAllFoos($db) as $row) {
+    echo "<li>".$row['campo1']." - ".$row['campo2']."</li>";
 }
 {% endhighlight %}
 
-That is a good start. Put those two items in two different files and you've got some clean separation.
+Questo è un buon inizio. Metti quei due pezzi in due file diversi e hai una
+separazione pulita.
 
-Create a class to place that method in and you have a "Model". Create a simple `.php` file to put the presentation
-logic in and you have a "View", which is very nearly [MVC] - a common OOP architecture for most
-[frameworks](/#frameworks).
+Crea una classe per metterci quel metodo e hai un "modello". Crea un semplice
+file `.php` per metterci la logica di presentazione e hai una "vista", che è
+molto simile all'[MVC] - un'architettura OOP comune a molti
+[framework](/#frameworks).
 
 **foo.php**
 
 {% highlight php %}
 <?php
-$db = new PDO('mysql:host=localhost;dbname=testdb;charset=utf8mb4', 'username', 'password');
+$db = new PDO('mysql:host=localhost;dbname=testdb;charset=utf8', 'utente', 'password');
 
-// Make your model available
+// Rendi disponibile il tuo modello
 include 'models/FooModel.php';
 
-// Create an instance
-$fooModel = new FooModel($db);
-// Get the list of Foos
-$fooList = $fooModel->getAllFoos();
+// Crea un'istanza
+$foo = new FooModel($db);
 
-// Show the view
+// Effettua la query attraverso un metodo pubblico
+$fooList = $foo->getAllFoos();
+
+// Mostra una vista
 include 'views/foo-list.php';
 {% endhighlight %}
 
@@ -68,7 +74,7 @@ include 'views/foo-list.php';
 
 {% highlight php %}
 <?php
-class FooModel
+class FooModel()
 {
     protected $db;
 
@@ -78,7 +84,7 @@ class FooModel
     }
 
     public function getAllFoos() {
-        return $this->db->query('SELECT * FROM table');
+        return $this->db->query('SELECT * FROM tabella');
     }
 }
 {% endhighlight %}
@@ -87,13 +93,20 @@ class FooModel
 
 {% highlight php %}
 <?php foreach ($fooList as $row): ?>
-    <li><?= $row['field1'] ?> - <?= $row['field1'] ?></li>
+    <?= $row['campo1'] ?> - <?= $row['campo2'] ?>
 <?php endforeach ?>
 {% endhighlight %}
 
-This is essentially the same as what most modern frameworks are doing, albeit a little more manual. You might not
-need to do all of that every time, but mixing together too much presentation logic and database interaction can be a
-real problem if you ever want to [unit-test](/#unit-testing) your application.
+Questa è essenzialmente la stessa cosa che fanno molti framework moderni, anche
+se un po' più manuale. Potresti non averne sempre bisogno, ma mischiare insieme
+troppa logica di presentazione e interazione col database può essere un problema
+serio se vorrai mai fare lo [unit testing](/#unit-testing) della tua
+applicazione.
 
+[PHPBridge] ha un'ottima risorsa chiamata [Creating a Data Class] che copre un
+argomento simile, ed è perfetta per sviluppatori che stanno prendendo
+famigliarità solo ora col concetto di interazione coi database.
 
-[MVC]: https://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488
+[MVC]: http://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488
+[PHPBridge]: http://phpbridge.org/
+[Creating a Data Class]: http://phpbridge.org/intro-to-php/creating_a_data_class

@@ -1,9 +1,10 @@
 ---
 isChild: true
+title:   Altre letture
 anchor:  further_reading
 ---
 
-## Further Reading {#further_reading_title}
+## Altre letture {#further_reading_title}
 
 * [What is Dependency Injection?](http://fabien.potencier.org/what-is-dependency-injection.html)
 * [Dependency Injection: An analogy](https://mwop.net/blog/260-Dependency-Injection-An-analogy.html)

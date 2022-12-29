@@ -1,18 +1,21 @@
 ---
-title:   Common Directory Structure
+title:   Struttura comune della directory
 isChild: true
 anchor:  common_directory_structure
 ---
 
-## Common Directory structure {#common_directory_structure_title}
+## Struttura comune della directory {#common_directory_structure_title}
 
-A common question among those starting out with writing programs for the web is, "where do I put my stuff?" Over the years, this answer has consistently been "where the `DocumentRoot` is." Although this answer is not complete, it's a great place to start.
+Una domanda comune tra coloro che iniziano a scrivere programmi per il web è "dove metto le mie cose?".
+Nel corso degli anni, questa risposta è stata costantemente "dove si trova `DocumentRoot`". 
+Sebbene questa risposta non sia completa, è un ottimo punto di partenza.
 
-For security reasons, configuration files should not be accessible by a site's visitors; therefore, public scripts are kept in a public directory and private configurations and data are kept outside of that directory.
+Per motivi di sicurezza, i file di configurazione non dovrebbero essere accessibili ai visitatori di un sito; 
+pertanto, gli script pubblici vengono conservati in una directory pubblica e le configurazioni ei dati privati ​​vengono conservati all'esterno di tale directory.
 
-For each team, CMS, or framework one works in, a standard directory structure is used by each of those entities. However, if one is starting a project alone, knowing which filesystem structure to use can be daunting.
+Per ogni team, CMS o framework in cui si lavora, ciascuna di queste entità utilizza una struttura di directory standard. Tuttavia, se si sta iniziando un progetto da soli, sapere quale struttura di filesystem utilizzare può essere scoraggiante.
 
-[Paul M. Jones] has done some fantastic research into common practices of tens of thousands of github projects in the realm of PHP. He has compiled a standard file and directory structure, the [Standard PHP Package Skeleton], based on this research. In this directory structure, `DocumentRoot` should point to `public/`, unit tests should be in the `tests/` directory, and third party libraries, as installed by [composer], belong in the `vendor/` directory. For other files and directories, abiding by the [Standard PHP Package Skeleton] will make the most sense to contributors of a project.
+[Paul M. Jones] ha condotto delle fantastiche ricerche sulle pratiche comuni di decine di migliaia di progetti github nel regno di PHP. Ha compilato una struttura standard di file e directory, lo [scheletro del pacchetto PHP standard], basato su questa ricerca. In questa struttura di directory, `DocumentRoot` dovrebbe puntare a `public/`, gli unit test dovrebbero essere nella directory `tests/` e le librerie di terze parti, come installate da [composer], dovrebbero appartenere alla directory `vendor/`. Per altri file e directory, il rispetto dello [scheletro del pacchetto PHP standard] avrà più senso per i contributori di un progetto.
 
 [Paul M. Jones]: http://paul-m-jones.com/
 [Standard PHP Package Skeleton]: https://github.com/php-pds/skeleton

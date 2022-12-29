@@ -1,5 +1,6 @@
 ---
 anchor: coding_practices
+title:  Pratiche di codifica
 ---
 
-# Coding Practices {#coding_practices_title}
+# Pratiche di codifica {#coding_practices_title}

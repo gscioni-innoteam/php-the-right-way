@@ -1,19 +1,24 @@
 ---
 isChild: true
+title:   Register globals
 anchor:  register_globals
 ---
 
-## Register Globals {#register_globals_title}
+## Register globals {#register_globals_title}
 
-**NOTE:** As of PHP 5.4.0 the `register_globals` setting has been removed and can no longer be used. This is only
-included as a warning for anyone in the process of upgrading a legacy application.
+**NOTA:** A partire da PHP 5.4.0 l'opzione `register_globals` è stata rimossa e
+non può più essere usata. Questo è incluso solo come avvertimento per chiunque
+stia aggiornando una vecchia applicazione.
 
-When enabled, the `register_globals` configuration setting makes several types of variables (including ones from
-`$_POST`, `$_GET` and `$_REQUEST`) available in the global scope of your application. This can easily lead to security
-issues as your application cannot effectively tell where the data is coming from.
+Quando abilitata, l'opzione `register_globals` farà sì che molti tipi di
+variabili (incluse quelle da `$_POST`, `$_GET` e `$_REQUEST`) siano disponibili
+nello scope globale dell'applicazione. Questo può facilmente portare a problemi
+di sicurezza, perché la tua applicazione non può stabilire con certezza da dove
+arrivano i dati.
 
-For example: `$_GET['foo']` would be available via `$foo`, which can override variables that have been declared.
+Per esempio: `$_GET['foo']` sarebbe disponibile tramite `$foo`, che può
+sovrascrivere le variabili non dichiarate. Se stai usando PHP < 5.4.0,
+__assicurati__ che `register_globals` sia __off__.
 
-If you are using PHP < 5.4.0 __make sure__ that `register_globals` is __off__.
+* [register_globals nel manuale PHP](http://php.net/security.globals)
 
-* [Register_globals in the PHP manual](https://secure.php.net/security.globals)

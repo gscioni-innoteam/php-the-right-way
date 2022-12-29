@@ -1,22 +1,26 @@
 ---
 isChild: true
+title:   Strumenti complementari
 anchor:  complementary_testing_tools
 ---
 
-## Complementary Testing Tools {#complementary_testing_tools_title}
+## Strumenti complementari {#complementary_testing_tools_title}
 
-Besides individual testing and behavior driven frameworks, there are also a number of generic frameworks and helper
-libraries useful for any preferred approach taken.
+Oltre ai framework di testing individuali, ci sono anche altri framework
+generici e librerie di aiuto utili per ogni approccio.
 
-### Tool Links
+### Link agli strumenti
 
-* [Selenium] is a browser automation tool which can be [integrated with PHPUnit]
-* [Mockery] is a Mock Object Framework which can be integrated with [PHPUnit] or [PHPSpec]
-* [Prophecy] is a highly opinionated yet very powerful and flexible PHP object mocking framework. It's integrated with
-[PHPSpec] and can be used with [PHPUnit].
-* [php-mock] is a library to help to mock PHP native functions.
-* [Infection] is a PHP implementation of [Mutation Testing] to help to measure the effectiveness of your tests.
-* [PHPUnit Polyfills] is a library that allows for creating PHPUnit cross-version compatible tests when a test suite needs to run against a range of PHPUnit versions.
+* [Selenium] è uno strumento di automazione del browser che può essere integrato
+  con PHPUnit
+* [Mockery] è un Mock Object Framework che può essere integrato con [PHPUnit] o
+  [PHPSpec]
+* [Prophecy] è un framework PHP per il mocking di oggetti molto discusso, ma
+  molto potente e flessibile. È integrato con [PHPSpec] e può essere usato con
+  [PHPUnit].
+* [php-mock] è una libreria che aiuta per il mocking di funzioni native PHP.
+* [Infection] è una implementazione PHP dei [Test di Mutazione] che aiutano a misurare l'efficienza dei tuoi test.
+* [PHPUnit Polyfills] è una libreria che consente di creare test compatibili tra versioni di PHPUnit quando una suite di test deve essere eseguita su una gamma di versioni di PHPUnit.
 
 
 [Selenium]: https://www.selenium.dev/

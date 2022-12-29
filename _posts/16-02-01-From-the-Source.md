@@ -1,10 +1,10 @@
 ---
-title:   From the Source
+title:   Ufficiali
 isChild: true
 anchor:  from_the_source
 ---
 
-## From the Source {#from_the_source_title}
+## Ufficiali {#from_the_source_title}
 
-* [PHP Website](https://secure.php.net/)
-* [PHP Documentation](https://secure.php.net/docs.php)
+* [Sito di PHP](http://php.net/)
+* [Documentazione di PHP](http://php.net/docs.php)

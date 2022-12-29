@@ -1,59 +1,84 @@
 ---
 isChild: true
+title:   Costruire e pubblicare la tua applicazione
 anchor:  building_and_deploying_your_application
 ---
 
-## Building and Deploying your Application {#building_and_deploying_your_application_title}
+## Costruire e pubblicare la tua applicazione {#building_and_deploying_your_application_title}
 
-If you find yourself doing manual database schema changes or running your tests manually before updating your files
-(manually), think twice! With every additional manual task needed to deploy a new version of your app, the chances for
-potentially fatal mistakes increase. Whether you're dealing with a simple update, a comprehensive build process or even
-a continuous integration strategy, [build automation][buildautomation] is your friend.
+Se ti trovi a dover modificare lo schema del database o eseguire i test prima
+dell'aggiornamento dei file manualmente, ripensaci! Con ogni compito manuale in
+più che devi eseguire per pubblicare una nuova versione della tua applicazione
+aumentano le possibilità di un errore fatale. Che tu stia gestendo un semplice
+aggiornamento, un processo di build completo o una strategia di integrazione
+continua, l'[automazione dello sviluppo][buildautomation] è tua amica.
 
-Among the tasks you might want to automate are:
+Tra i compiti che potresti voler automatizzare ci sono:
 
-* Dependency management
-* Compilation, minification of your assets
-* Running tests
-* Creation of documentation
-* Packaging
-* Deployment
+* Gestione delle dipendenze
+* Compilazione e minificazione dei media
+* Esecuzione dei test
+* Creazione di documentazione
+* Pacchettizzazione
+* Pubblicazione
 
+Questi strumenti possono essere descritti come un insieme di script che
+gestiscono compiti comuni nella pubblicazione del software. Lo strumento non è
+parte del tuo software, ma agisce su di esso da 'fuori'.
 
-### Deployment Tools
+Ci sono molti strumenti open source disponibili per aiutarti con l'automazione
+dello sviluppo, alcuni scritti in PHP, altri no. Questo non dovrebbe impedirti
+di usarli, se sono più adatti per uno specifico compito. Ecco alcuni esempi.
 
-Deployment tools can be described as a collection of scripts that handle common tasks of software deployment. The deployment tool is not a part of your software, it acts on your software from 'outside'.
+[Phing] è il modo più facile per iniziare con la pubblicazione automatica nel
+mondo di PHP. Con Phing puoi controllare la pacchettizazione, la pubblicazione o
+il processo di testing tramite un semplice file XML. Phing (che è basato su
+[Apache Ant]) fornisce un ricco set di compiti solitamente richiesti per
+installare o aggiornare un'applicazione Web e può essere esteso con compiti
+personalizzati, scritti in PHP.
 
-There are many open source tools available to help you with build automation and deployment, some are written in PHP others aren't. This shouldn't hold you back from using them, if they're better suited for the specific job. Here are a few examples:
+[Capistrano] è un sistema per *programmatori medio-avanzati* per eseguire
+comandi in modo strutturato e ripetibile su una o più macchine remote. È pre-
+configurato per la pubblicazione di applicazioni Ruby on Rails, ma molti lo
+usano per **pubblicare applicazioni PHP**. Il suo corretto utilizzo dipende
+dalla conoscenza di Ruby e Rake.
 
-[Phing] can control your packaging, deployment or testing process from within a XML build file. Phing (which is based on [Apache Ant]) provides a rich set of tasks usually needed to install or update a web application and can be extended with additional custom tasks, written in PHP. It's a solid and robust tool and has been around for a long time, however the tool could be perceived as a bit old fashioned because of the way it deals with configuration (XML files).
+Il post [PHP Deployment with Capistrano][phpdeploy_capistrano] sul blog di Dave
+Gardner è un buon punto d'inizio per programmatori PHP interessati a Capistrano.
 
-[Capistrano] is a system for *intermediate-to-advanced programmers* to execute commands in a structured, repeatable way on one or more remote machines. It is pre-configured for deploying Ruby on Rails applications, however you can successfully deploy PHP systems with it. Successful use of Capistrano depends on a working knowledge of Ruby and Rake.
+[Chef] è più di un framework di pubblicazione. È un framework di integrazione di
+sistema molto potente scritto in Ruby che non solo pubblica la tua applicazione
+ma può costruire l'intero ambiente server o macchina virtuale.
 
-[Ansistrano] is a couple of Ansible roles to easily manage the deployment process (deploy and rollback) for scripting applications such as PHP, Python and Ruby. It's an Ansible port for [Capistrano]. It's been used by quite a lot of PHP companies already.
+[Deployer] è uno strumento di pubblicazione scritto in PHP; è semplice e
+[funzionale. Esegue i compiti in parallelo, supporta la pubblicazione atomica,
+[mantiene la consistenza tra i server. Ha ricette per compiti comuni relativi a
+[Symfony, Laravel, Zend Framework e Yii.
 
-[Rocketeer] gets its inspiration and philosophy from the Laravel framework. Its goal is to be fast, elegant and easy to use with smart defaults. It features multiple servers, multiple stages, atomic deploys and deployment can be performed in parallel. Everything in the tool can be hot swapped or extended, and everything is written in PHP.
+[Magallanes] è un altro strumento scritto in PHP con una semplice configurazione fatta in file YAML. Ha il supporto per più server e ambienti, distribuzione atomica e ha alcune attività integrate che puoi sfruttare per strumenti e framework comuni.
 
-[Deployer] is a deployment tool written in PHP. It's simple and functional. Features include running tasks in parallel, atomic deployment and keeping consistency between servers. Recipes of common tasks for Symfony, Laravel, Zend Framework and Yii are available. Younes Rafie's article [Easy Deployment of PHP Applications with Deployer][phpdeploy_deployer] is a great tutorial for deploying your application with the tool.
+#### Risorse Chef per sviluppatori PHP
 
-[Magallanes] is another tool written in PHP with simple configuration done in YAML files. It has support for multiple servers and environments, atomic deployment, and has some built in tasks that you can leverage for common tools and frameworks.
+* [Serie in tre parti sulla pubblicazione di un'applicazione LAMP con Chef, Vagrant ed EC2][chef_vagrant_and_ec2]
+* [Articolo sull'installazione e la configurazione di PHP 5.3 e PEAR con Chef][Chef_cookbook]
+* [Video tutorial su Chef][Chef_tutorial] fatto da Opscode, i creatori di Chef
+* 
+#### Altre letture:
 
-#### Further reading:
+* [Automatizza il tuo progetto con Apache Ant][apache_ant_tutorial]
+* [Distribuisci applicazioni PHP][deploying_php_applications] - libro a pagamento sulle migliori pratiche e strumenti per la distribuzione di PHP.
 
-* [Automate your project with Apache Ant][apache_ant_tutorial]
-* [Deploying PHP Applications][deploying_php_applications] - paid book on best practices and tools for PHP deployment.
+### Provisioning del server
 
-### Server Provisioning
+La gestione e la configurazione dei server può essere un'attività ardua quando ci si trova di fronte a molti server. Esistono strumenti per gestire questo in modo da poter automatizzare la tua infrastruttura per assicurarti di avere i server giusti e che siano configurati correttamente. Spesso si integrano con i provider di hosting cloud più grandi (Amazon Web Services, Heroku, DigitalOcean, ecc.) per la gestione delle istanze, il che rende molto più semplice il ridimensionamento di un'applicazione.
 
-Managing and configuring servers can be a daunting task when faced with many servers. There are tools for dealing with this so you can automate your infrastructure to make sure you have the right servers and that they're configured properly. They often integrate with the larger cloud hosting providers (Amazon Web Services, Heroku, DigitalOcean, etc) for managing instances, which makes scaling an application a lot easier.
+[Ansible] è uno strumento che gestisce la tua infrastruttura tramite file YAML. È facile iniziare e può gestire applicazioni complesse e su larga scala. Esiste un'API per la gestione delle istanze cloud e può gestirle tramite un inventario dinamico utilizzando determinati strumenti.
 
-[Ansible] is a tool that manages your infrastructure through YAML files. It's simple to get started with and can manage complex and large scale applications. There is an API for managing cloud instances and it can manage them through a dynamic inventory using certain tools.
+[Puppet] è uno strumento che ha il proprio linguaggio e tipi di file per la gestione di server e configurazioni. Può essere utilizzato in una configurazione master/client o può essere utilizzato in modalità "master-less". Nella modalità master/client i client interrogheranno i master centrali per una nuova configurazione a intervalli prestabiliti e si aggiorneranno se necessario. Nella modalità master-less puoi eseguire il push delle modifiche ai tuoi nodi.
 
-[Puppet] is a tool that has its own language and file types for managing servers and configurations. It can be used in a master/client setup or it can be used in a "master-less" mode. In the master/client mode the clients will poll the central master(s) for new configuration on set intervals and update themselves if necessary. In the master-less mode you can push changes to your nodes.
+[Chef] è un potente framework di integrazione di sistema basato su Ruby con cui puoi creare l'intero ambiente server o scatole virtuali. Si integra bene con Amazon Web Services attraverso il loro servizio chiamato OpsWorks.
 
-[Chef] is a powerful Ruby based system integration framework that you can build your whole server environment or virtual boxes with. It integrates well with Amazon Web Services through their service called OpsWorks.
-
-#### Further reading:
+#### Altre letture:
 
 * [An Ansible Tutorial][an_ansible_tutorial]
 * [Ansible for DevOps][ansible_for_devops] - paid book on everything Ansible
@@ -62,26 +87,26 @@ Managing and configuring servers can be a daunting task when faced with many ser
 * [Chef Cookbook which installs and configures PHP and the PEAR package management system][Chef_cookbook]
 * [Chef video tutorial series][Chef_tutorial]
 
-### Continuous Integration
+### Integrazione continua
 
-> Continuous Integration is a software development practice where members of a team integrate their work frequently,
-> usually each person integrates at least daily — leading to multiple integrations per day. Many teams find that this
-> approach leads to significantly reduced integration problems and allows a team to develop cohesive software more
-> rapidly.
+> L'integrazione continua è una pratica di sviluppo software in cui i membri di un team integrano frequentemente il proprio lavoro,
+> di solito ogni persona si integra almeno quotidianamente, portando a più integrazioni al giorno. Molte squadre trovano che questo
+> approccio porta a problemi di integrazione significativamente ridotti e consente a un team di sviluppare un software più coeso
+> rapidamente.
 
 *-- Martin Fowler*
 
-There are different ways to implement continuous integration for PHP. [Travis CI] has done a great job of
-making continuous integration a reality even for small projects. Travis CI is a hosted continuous integration service
-for the open source community. It is integrated with GitHub and offers first class support for many languages including
+Esistono diversi modi per implementare l'integrazione continua per PHP. [Travis CI] ha fatto un ottimo lavoro
+rendere l'integrazione continua una realtà anche per piccoli progetti. Travis CI è un servizio di integrazione continua in hosting
+per la comunità open source. È integrato con GitHub e offre un supporto di prima classe per molte lingue tra cui
 PHP.
 
-#### Further reading:
+#### Altre letture:
 
-* [Continuous Integration with Jenkins][Jenkins]
-* [Continuous Integration with PHPCI][PHPCI]
+* [Integrazione continua con Jenkins][Jenkins]
+* [Integrazione continua con PHPCI][PHPCI]
+* [Integrazione continua con Teamcity][Teamcity]
 * [Continuous Integration with PHP Censor][PHP Censor]
-* [Continuous Integration with Teamcity][Teamcity]
 
 [buildautomation]: https://wikipedia.org/wiki/Build_automation
 [Phing]: https://www.phing.info/

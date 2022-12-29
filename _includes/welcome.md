@@ -1,23 +1,26 @@
-# Welcome
+# Benvenuto
 
-There's a lot of outdated information on the Web that leads new PHP users astray,
-propagating bad practices and insecure code. _PHP: The Right Way_ is an easy-to-read,
-quick reference for PHP popular coding standards, links to authoritative tutorials
-around the Web, and what the contributors consider to be best practices at present.
+Sul Web ci sono molte informazioni datate che portano gli utenti PHP fuori
+strada, propagando cattive abitudini e codice non sicuro. _PHP: La Retta Via_ è
+una guida di riferimento veloce e facile da leggere contenente le migliori
+tecniche di sviluppo PHP, gli standard popolari di scrittura del codice, link a
+tutorial autorevoli sparsi per il Web e quelle che secondo gli autori sono
+attualmente le migliori pratiche.
 
-_There is no canonical way to use PHP_. This website aims to introduce new PHP
-developers to some topics which they may not discover until it is too late, and aims
-to give seasoned pros some fresh ideas on those topics they've been doing for years
-without ever reconsidering. This website will also not tell you which tools to use, but
-instead offer suggestions for multiple options, when possible explaining the differences
-in approach and use-case.
+_Non c'è un solo modo corretto di usare PHP_. Questo sito Web mira a presentare
+ai nuovi sviluppatori PHP alcuni argomenti che potrebbero non prendere mai in
+considerazione, se non troppo tardi, e mira a fornire ai professionisti alcune
+idee fresche riguardo procedure che hanno usato per anni senza mai aggiornarle.
+Questo sito Web inoltre non ti dirà mai quali strumenti usare, ma invece offrirà
+suggerimenti per opzioni multiple, spiegando le differenze nell'approccio e nei
+casi di utilizzo.
 
-This is a living document and will continue to be updated with more helpful information
-and examples as they become available.
+Questo è un documento in sviluppo e continuerà a essere aggiornato con nuove
+informazioni utili ed esempi non appena saranno disponibili.
 
-## Translations
+## Traduzioni
 
-_PHP: The Right Way_ is translated into many different languages:
+_PHP: La Retta Via_ è tradotto in molte lingue diverse:
 
 * [English](http://www.phptherightway.com)
 * [Español](http://phpdevenezuela.github.io/php-the-right-way)
@@ -41,13 +44,13 @@ _PHP: The Right Way_ is translated into many different languages:
 * [简体中文](https://laravel-china.github.io/php-the-right-way/)
 * [繁體中文](https://laravel-taiwan.github.io/php-the-right-way)
 
-## Book
+## Libro
 
-The most recent version of _PHP: The Right Way_ is also available in PDF, EPUB and MOBI formats. [Go to Leanpub][1]
+La versione più recente di _PHP: The Right Way_ è disponibile anche nei formati PDF, EPUB e MOBI. [Vai a Leanpub][1]
 
-## How to Contribute
+## Come contribuire
 
-Help make this website the best resource for new PHP programmers! [Contribute on GitHub][2]
+Contribuisci a rendere questo sito Web la migliore risorsa per i nuovi programmatori PHP! [Contribuisci su GitHub][2]
 
 [1]: https://leanpub.com/phptherightway
 [2]: https://github.com/codeguy/php-the-right-way/tree/gh-pages

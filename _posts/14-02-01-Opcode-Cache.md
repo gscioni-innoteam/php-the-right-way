@@ -1,24 +1,34 @@
 ---
 isChild: true
+title:   Opcode Cache
 anchor:  opcode_cache
 ---
 
 ## Opcode Cache {#opcode_cache_title}
 
-When a PHP file is executed, it must first be compiled into [opcodes](https://php-legacy-docs.zend.com/manual/php4/en/internals2.opcodes) (machine language instructions for the CPU). If the source code is unchanged, the opcodes will be the same, so this compilation step becomes a waste of CPU resources.
+W## Opcode cache {#opcode_cache_title}
 
-An opcode cache prevents redundant compilation by storing opcodes in memory and reusing them on successive calls. It will typically check signature or modification time of the file first, in case there have been any changes.
+Quando un nuovo PHP file viene eseguito, è prima compilato in opcode; solo dopo
+l'opcode viene eseguito. Se un file PHP non viene modificato, l'opcode rimane lo
+stesso. Questo significa che il processo di compilazione è uno spreco di risorse
+computazionali.
 
-It's likely an opcode cache will make a significant speed improvement to your application.  Since PHP 5.5 there is one built in - [Zend OPcache][opcache-book]. Depending on your PHP package/distribution, it's usually turned on by default - check [opcache.enable](https://secure.php.net/manual/opcache.configuration.php#ini.opcache.enable) and the output of `phpinfo()` to make sure. For earlier versions there's a PECL extension.
+È qui che le cache dell'opcode entrano in gioco. Evitano compilazioni inutili
+salvando l'opcode in memoria e riusandolo nelle chiamate successive. Impostare
+una cache dell'opcode è una questione di minuti, e la tua applicazione sarà
+molto più veloce. Non c'è alcuna ragione per non usarla.
 
-Read more about opcode caches:
+A partire da PHP 5.5, c'è una cache dell'opcode integrata chiamata
+[OPcache][opcache-book]. È anche disponibile per versioni precedenti.
 
-* [Zend OPcache][opcache-book] (bundled with PHP since 5.5)
-* Zend OPcache (formerly known as Zend Optimizer+) is now [open source][Zend Optimizer+]
-* [APC] - PHP 5.4 and earlier
+Altre risorse sulle cache dell'opcode:
+
+* [OPcache][opcache-book] (integrata a partire da PHP 5.5)
+* [APC] (PHP 5.4 e precedenti)
 * [XCache]
-* [WinCache] (extension for MS Windows Server)
-* [list of PHP accelerators on Wikipedia][PHP_accelerators]
+* [Zend Optimizer+] (parte del pacchetto Zend Server)
+* [WinCache] (estensione per MS Windows Server)
+* [lista di acceleratori PHP su Wikipedia][PHP_accelerators]
 * [PHP Preloading] - PHP >= 7.4
 
 

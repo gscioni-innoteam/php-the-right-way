@@ -1,33 +1,47 @@
 ---
 isChild: true
+title:   Namespace
 anchor:  namespaces
 ---
 
-## Namespaces {#namespaces_title}
+## Namespace {#namespaces_title}
 
-As mentioned above, the PHP community has a lot of developers creating lots of code. This means that one library's PHP
-code might use the same class name as another. When both libraries are used in the same namespace, they collide
-and cause trouble.
+Come menzionato sopra, la comunità PHP ha molti sviluppatori che creano molto
+codice. Questo significa che il codice PHP di una libreria potrebbe usare lo
+stesso nome di un'altra per una classe. Quando entrambe le librerie vengono
+usate nello stesso namespace, potrebbero collidere e causare problemi.
 
-_Namespaces_ solve this problem. As described in the PHP reference manual, namespaces may be compared to operating
-system directories that _namespace_ files; two files with the same name may co-exist in separate directories. Likewise,
-two PHP classes with the same name may co-exist in separate PHP namespaces. It's as simple as that.
+I _namespace_ risolvono questo problema. Come descritto nel manuale di PHP, si
+può pensare ai namespace come directory del sistema operativo che dividono i
+file; due file con lo stesso nome possono esistere in directory separate. Allo
+stesso modo, due classi PHP con lo stesso nome possono esistere in namespace PHP
+separati. È così semplice.
 
-It is important for you to namespace your code so that it may be used by other developers without fear of colliding
-with other libraries.
+È importante inserire il codice in un namespace in modo che possa essere usato
+da altri sviluppatori senza paura che esso collida con altre librerie.
 
-One recommended way to use namespaces is outlined in [PSR-4][psr4], which aims to provide a standard file, class and
-namespace convention to allow plug-and-play code.
+Nel dicembre 2013 il PHP-FIG ha creato un nuovo standard per l'autoloading:
+[PSR-4][psr4], che un giorno probabilmente rimpiazzerà PSR-0. Attualmente
+entrambi sono ancora utilizzabili, perché PSR-4 richiede PHP 5.3 e molti
+progetti che supportano solo PHP 5.2 attualmente implementano PSR-0. Se userai
+un autoloader standard per una nuova applicazione o pacchetto allora vorrai
+quasi sicuramente dare un'occhiata a PSR-4.
 
-In October 2014 the PHP-FIG deprecated the previous autoloading standard: [PSR-0][psr0]. Both PSR-0 and PSR-4 are still perfectly usable.  The latter requires PHP 5.3, so many PHP 5.2-only projects implement PSR-0.
+Un modo raccomandato di usare i namespace è delineato nel [PSR-4], che mira a
+fornire una convenzione standard per la i nomi di file, classi e namespace, in
+modo da consentire la scrittura di codice plug-and-play.
 
-If you're going to use an autoloader standard for a new application or package, look into PSR-4.
+Nell'ottobre 2014 il PHP-FIG ha deprecato il precedente standard di autoloading,
+[PSR-0][psr0], che è stato sostituito con [PSR-4][psr4]. Attualmente entrambi
+sono ancora utilizzabili, giacché PSR-4 richiede PHP 5.3 e molti progetti solo
+per PHP 5.2 implementano attualmente PSR-0. Se hai intenzione di usare uno
+standard di autoloading per una nuova applicazione o pacchetto, probabilmente
+PSR-4 è la scelta giusta.
 
-* [Read about Namespaces][namespaces]
-* [Read about PSR-0][psr0]
-* [Read about PSR-4][psr4]
+* [Leggi sui namespace][namespaces]
+* [Leggi il PSR-0][psr0]
+* [Leggi il PSR-4][psr4]
 
-
-[namespaces]: https://secure.php.net/language.namespaces
-[psr0]: https://www.php-fig.org/psr/psr-0/
-[psr4]: https://www.php-fig.org/psr/psr-4/
+[namespaces]: http://php.net/language.namespaces
+[psr0]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
+[psr4]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md
